@@ -1,13 +1,56 @@
 package com.yongren.github;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        hashTableTest001();
+//        hashTableTest001();
 
 //        arryListTest();
+
+//        lambdaTest();
+
+        newCollectionTest();
+
+
+    }
+
+    static void newCollectionTest() {
+
+        // ---- java8新特性之  不可变集合 ----
+        // 不可变的
+        List<Integer> list = Arrays.asList(1, 2, 3,4,5,6,7);
+        List staticList = List.of(1,2,3,4,5,6);
+
+//        list.add(555);
+//        list.forEach(System.out::println);
+
+//        staticList.add(777);
+//        staticList.forEach(System.out::println);
+
+    }
+
+    static void lambdaTest() {
+        // ---- java8新特性之 Lambda 表达式的2种形式 ----
+        List<Integer> list = Arrays.asList(1, 2, 3,4,5,6,7);
+
+        // old
+        System.out.println(" -- old --");
+        for (Integer x: list) {
+            System.out.println(x);
+        }
+
+        // new 可使用 Arrow Style
+        System.out.println(" -- Arrow style --");
+        list.forEach(x -> System.out.println(x));
+        // 特别的，可使用 :: 对普通方法进行转换
+        System.out.println(" -- :: style --");
+        list.forEach(System.out::println);
+
+        System.out.println(" -- stream --");
+        list.stream().map(x -> x * x).forEach(System.out::println);
     }
 
      static void hashTableTest001() {
